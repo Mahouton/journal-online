@@ -1,6 +1,7 @@
 <?php
 require_once('../../model/users.php');
 
+
 /** 
  * Récupération des données envoyées via JavaScript (AJAX)
  * 
@@ -10,11 +11,13 @@ require_once('../../model/users.php');
  * qui pourraient causer des problèmes de sécurité ou des erreurs dans le code.
  * 
  */
-$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
+if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email'])) {
+    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
+}
 // Instanciation d'un nouvel objet Users
 $users = new Users();
 
@@ -22,10 +25,13 @@ $users = new Users();
 $result = $users->CreateUser($username, $password, $email);
 
 // Vérification du résultat et retour en JSON
-header('Content-Type: application/json');
 if ($result) {
-    echo json_encode(['status' => 'success']);
+header('Content-Type: application/json');
+
+    echo json_encode(['status' => 'success', 'username' => $username]);
 } else {
+header('Content-Type: application/json');
+
     echo json_encode(['status' => 'error']);
 }
 ?>

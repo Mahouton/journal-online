@@ -3,6 +3,7 @@ function createUser() {
         e.preventDefault(); // Empêcher la soumission de formulaire par défaut
 
         // Récupérer les valeurs du formulaire
+        //var valider = $('#valider').val();
         var username = $("#username").val();
         var password = $("#password").val();
         var email = $("#email").val();
@@ -16,13 +17,13 @@ function createUser() {
             displayError("Le mot de passe est obligatoire");
             return;
         }
-        if (!isValidEmail(email)) {
+        if (email.length === 0) {
             displayError("L'adresse email n'est pas valide");
             return;
         }
 
         // Hasher le mot de passe
-        password = hashPassword(password);
+        //password = hashPassword(password);
 
         // Préparer les données à envoyer au serveur
         var data = {
@@ -34,14 +35,23 @@ function createUser() {
         // Envoyer les données au serveur via AJAX
         $.ajax({
             type: 'POST',
-            url: 'controller/user/createUser.php',
+            url: '/journal-online/controller/users/createUser.php',
             data: data,
             dataType: 'json',
             encode: true
         })
             .done(function (response) {
-                if (response.status === 'success') {
+                if (response.status == 'success') {
+                    $('#modalCreate').modal('hide');
+                    $('#modalCreate input[type="text"], #modalCreate input[type="email"], #modalCreate input[type="password"]').val('');
+
+                    $('#greatUser').append(response.username); 
                     displaySuccess("Utilisateur créé avec succès");
+
+                    setTimeout(function(){
+                        location.reload();
+                    }, 5000);
+
                 } else {
                     displayError("Erreur lors de la création de l'utilisateur");
 

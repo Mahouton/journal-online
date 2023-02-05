@@ -1,4 +1,6 @@
 <?php
+require_once(dirname(__FILE__).'/../config/database.php');
+
 class Users
 {
     private $user_id;
@@ -12,7 +14,7 @@ class Users
      */
     public function __construct()
     {
-        require_once('../config/database.php');
+        $this->pdo = Database::getPDO();
     }
 
     /**

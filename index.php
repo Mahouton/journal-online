@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54">
@@ -29,11 +30,16 @@
     <header class="masthead" style="background-image: url('assets/img/header-bg-1.jpg');">
         <div class="container">
             <div class="intro-text">
+                <div id="success" class="alert alert-success alert-dismissible fade show" role="alert">Hey
+                    <strong id="greatUser"> </strong><br> Votre compte a été créé avec succès! Vous pouvez vous connecter.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
                 <div class="intro-lead-in"><span>Bienvenue sur Journal-Online!</span></div>
                 <div class="intro-heading text-uppercase"><span>Enchanté de vous rencontrer</span></div>
                 <a class="btn btn-light btn-xl text-uppercase" role="button" href="#journaux">Se connecter
                 </a>
-                <a class="btn btn-secondary btn-xl text-uppercase" role="button" href="#journaux" data-bs-toggle="modal" data-bs-target="#modalCreate">Créer
+                <a class="btn btn-secondary btn-xl text-uppercase" role="button" href="#journaux" data-bs-toggle="modal"
+                    data-bs-target="#modalCreate">Créer
                     un compte
                 </a>
             </div>
@@ -109,9 +115,13 @@
             </div>
         </div>
     </footer>
-    <?php include('view/users/modalCreate.php')?>
+    <?php include('view/users/modalCreate.php') ?>
+    <script src="assets/bootstrap/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/script.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/users.js"></script>
+
 </body>
 
 </html>
