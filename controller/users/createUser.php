@@ -1,37 +1,27 @@
 <?php
 require_once('../../model/users.php');
 
-
-/** 
- * Récupération des données envoyées via JavaScript (AJAX)
- * 
- * L'utilisation de la fonction filter_input 
- * permet de vérifier et de nettoyer les entrées des utilisateurs,
- * en enlevant les caractères spéciaux 
- * qui pourraient causer des problèmes de sécurité ou des erreurs dans le code.
- * 
- */
-
-if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email'])) {
-    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-
+$data = ['username' => '', 'password' => '', 'email' => ''];
+foreach ($data as $key => &$value) {
+    if (isset($_POST[$key])) {
+        $value = filter_input(INPUT_POST, $key, FILTER_SANITIZE_STRING);
+    }
 }
-// Instanciation d'un nouvel objet Users
+unset($value);
+
 $users = new Users();
+$result = $users->CreateUser($data['username'], password_hash($data['password'], PASSWORD_DEFAULT), $data['email']);
 
-// Appel de la méthode CreateUser avec les données reçues
-$result = $users->CreateUser($username, $password, $email);
+$response = [
+    'status' => $result === true ? 'success' : 'error',
+    'username' => $data['username']
+];
 
-// Vérification du résultat et retour en JSON
-if ($result) {
-header('Content-Type: application/json');
 
-    echo json_encode(['status' => 'success', 'username' => $username]);
-} else {
-header('Content-Type: application/json');
-
-    echo json_encode(['status' => 'error']);
+if ($result === 1062) {
+    $response['message'] = 'Adresse email déjà utilisée';
 }
+
+header('Content-Type: application/json');
+echo json_encode($response);
 ?>

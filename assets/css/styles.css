@@ -1,14 +1,9 @@
-.error{
-    background-color: rgb(201, 150, 150);
-    border-radius: 0.5em;
-    text-align: center;
-}
 .success{
     background-color: rgb(166, 201, 150);
     border-radius: 0.5em;
     text-align: center;
 }
 
-#success{
+#success, #message-container, #login-message-container, #categorieError-container, #entriesError-container{
     display: none;
 }
