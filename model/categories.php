@@ -41,7 +41,7 @@ class Categories
             return (bool) $stmt->rowCount();
             
         } catch (PDOException $e) {
-            return $this->isUniqueConstraintViolation($e) ? 1062 : throw $e;
+            return $this->isUniqueConstraintViolation($e) ? 1062 :  $e;
         }
 
     }

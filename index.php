@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,10 +17,7 @@ session_start();
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54">
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav">
-        <div class="container"><a class="navbar-brand" href="#page-top">Journal-Online</a><button
-                data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right"
-                type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i
-                    class="fa fa-bars"></i></button>
+        <div class="container"><a class="navbar-brand" href="#page-top">Journal-Online</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto text-uppercase">
                     <li class="nav-item"><a class="nav-link" href="#journaux">journaux</a></li>
@@ -28,14 +25,13 @@ session_start();
                     <li class="nav-item"><a class="nav-link" href="#apropos">A propos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] == true) {
-                        ?>
+                    ?>
                         <li class="nav-item"><a class="nav-link" href="controller/users/logout.php">Déconnexion</a></li>
 
                     <?php
                     } else {
-                        ?>
-                        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal"
-                                data-bs-target="#modalLogin">Connexion</a></li>
+                    ?>
+                        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalLogin">Connexion</a></li>
                     <?php
                     } ?>
                 </ul>
@@ -52,16 +48,15 @@ session_start();
                 </div>
                 <div class="intro-lead-in"><span>Bienvenue <strong style="color:yellow">
                             <?php if (isset($_SESSION['name']))
-                                echo "@ ".$_SESSION['name'] ?></strong> sur
-                                Journal-Online!</span></div>
-                    <div class="intro-heading text-uppercase"><span>Ravi de vous rencontrer</span></div>
+                                echo $_SESSION['name'] ?></strong> sur
+                        Journal-Online!</span>
+                </div>
+                <div class="intro-heading text-uppercase"><span>Ravi de vous rencontrer</span></div>
                 <?php if (!isset($_SESSION['auth'])) {
-                                ?>
-                    <a id="btnmodalLogin" class="btn btn-light btn-xl text-uppercase" role="button" href="#"
-                        data-bs-toggle="modal" data-bs-target="#modalLogin">Se connecter
+                ?>
+                    <a id="btnmodalLogin" class="btn btn-light btn-xl text-uppercase" role="button" href="#" data-bs-toggle="modal" data-bs-target="#modalLogin">Se connecter
                     </a>
-                    <a id="btnmodalCreate" class="btn btn-secondary btn-xl text-uppercase" role="button" href="#journaux"
-                        data-bs-toggle="modal" data-bs-target="#modalCreate">Créer
+                    <a id="btnmodalCreate" class="btn btn-secondary btn-xl text-uppercase" role="button" href="#journaux" data-bs-toggle="modal" data-bs-target="#modalCreate">Créer
                         un compte
                     </a>
                 <?php } ?>
@@ -75,9 +70,8 @@ session_start();
                     <h2 class="text-uppercase section-heading">Catégories</h2>
 
                     <?php if (isset($_SESSION['auth'])) {
-                        ?>
-                        <button class="btn btn-secondary mb-3" data-bs-toggle="modal" data-bs-target="#modalCreateCat">Ajouter <i
-                                class="fa fa-plus"></i> </button>
+                    ?>
+                        <button class="btn btn-secondary mb-3" data-bs-toggle="modal" data-bs-target="#modalCreateCat">Ajouter <i class="fa fa-plus"></i> </button>
                     <?php } ?>
                     <h3 class="text-muted section-subheading ">Ci-dessous la liste des catégories de journaux</h3>
                 </div>
@@ -94,15 +88,14 @@ session_start();
                 <div class="col-lg-12 text-center">
                     <h2 class="text-uppercase section-heading">Journaux</h2>
                     <?php if (isset($_SESSION['auth'])) {
-                        ?>
-                        <button class="btn btn-secondary mb-3" data-bs-toggle="modal" data-bs-target="#modalCreateEntries">Publier un journal <i
-                                class="fa fa-plus"></i> </button>
+                    ?>
+                        <button class="btn btn-secondary mb-3" data-bs-toggle="modal" data-bs-target="#modalCreateEntries">Publier un journal <i class="fa fa-plus"></i> </button>
                     <?php } ?>
                     <h3 class="text-muted section-subheading">Ci-dessous la liste des journaux publiés</h3>
                 </div>
             </div>
             <div class="row text-center" id="listOfEntries">
-                        
+
             </div>
         </div>
     </section>
@@ -173,7 +166,6 @@ session_start();
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/tinymce/js/tinymce/tinymce.min.js"></script>
     <script src="assets/js/initTinymce.js"></script>
-    <script src="assets/js/script.min.js"></script>
     <script src="assets/js/scripts.js"></script>
     <script src="assets/js/users.js"></script>
     <script src="assets/js/categories.js"></script>
@@ -188,7 +180,7 @@ session_start();
         var selector = document.getElementById("icon_name");
         var iconContainer = document.getElementById("selected-icon");
 
-        selector.addEventListener("change", function () {
+        selector.addEventListener("change", function() {
             var selectedValue = selector.value;
             iconContainer.innerHTML = "<span class='fa-stack fa-3x'><i class='fa fa-circle fa-stack-2x text-primary'></i> <i class='fa " + selectedValue + " fa-stack-1x fa-inverse'></i></span>";
         });

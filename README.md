@@ -10,7 +10,7 @@ Cette application permet aux utilisateurs de créer et de gérer leurs propres e
 * Recherche et filtrage des entrées de journal par catégorie
 
 ## _Technologies utilisées_
-* PHP
+* PHP pou le backend
 * BOOTSTRAP 5, HTML, CSS ET JAVASCRIPT pour la mise en page et l'interface utilisateur
 * MySQL pour le stockage des données
 * Modèle MVC pour la structure de l'application

@@ -48,7 +48,7 @@ function createEntries() {
           // Envoyer les données au serveur via AJAX
           $.ajax({
               type: 'POST',
-              url: '/journal-online/controller/entries/createEntries.php',
+              url: '/../../controller/entries/createEntries.php',
               data: data,
               dataType: 'json',
               encode: true
@@ -87,7 +87,7 @@ function createEntries() {
 function displayEntries() {
     var displayData="true";
     $.ajax({
-        url: '/journal-online/controller/entries/display.php',
+        url: '/../../controller/entries/display.php',
         type: 'post',
         data:{
             displaySend: displayData

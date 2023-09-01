@@ -74,7 +74,7 @@ function createUser() {
             // Envoyer les données au serveur via AJAX
             $.ajax({
                 type: 'POST',
-                url: '/journal-online/controller/users/createUser.php',
+                url: '/../../controller/users/createUser.php',
                 data: data,
                 dataType: 'json',
                 encode: true
@@ -137,7 +137,7 @@ function loginUser() {
             // Envoyer les données au serveur via AJAX
             $.ajax({
                 type: 'POST',
-                url: '/journal-online/controller/users/loginUser.php',
+                url: '../../controller/users/loginUser.php',
                 data: data,
                 dataType: 'json',
                 encode: true

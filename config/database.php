@@ -15,8 +15,8 @@ class Database
             try {
                 $db_host = "localhost";
                 $db_name = "journal_entries";
-                $db_user = "paul";
-                $db_password = "geek@123";
+                $db_user = "admin";
+                $db_password = "admin";
                 $dsn = "mysql:host=$db_host;dbname=$db_name;charset=utf8";
                 $options = [
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

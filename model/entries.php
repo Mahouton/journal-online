@@ -67,7 +67,7 @@ class Entries
             
         } catch (PDOException $e) {
             $this->pdo->rollBack();
-            return throw $e;
+            return $e;
         }
 
     }

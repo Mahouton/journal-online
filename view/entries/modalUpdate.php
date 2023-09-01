@@ -2,7 +2,7 @@
 require_once(dirname(__FILE__) . '/../../controller/entries/categoriesData.php');
 ?>
 
-<!-- Modal pour le formulaire d'ajout d'un Journal -->
+<!-- Modal pour le formulaire de mise à jour d'un Journal -->
 <div class="container-fluid">
     <div class="modal fade" tabindex="-1" role="dialog" id="modalCreateEntries" data-bs-backdrop="static" data-bs-keyboard="false">
         <div class="modal-dialog modal-xl" role="document">
@@ -14,23 +14,23 @@ require_once(dirname(__FILE__) . '/../../controller/entries/categoriesData.php')
                     </button>
                 </div>
                 <div class="modal-body mb-3">
-                    <!-- Formulaire d'ajout -->
-                    <form id="form-create-entries" method="post" class="row gx-3 gy-2 align-items-center">
+                    <!-- Formulaire de mise à jour -->
+                    <form id="form-update-entries" method="post" class="row gx-3 gy-2 align-items-center">
 
                         <div class="col-sm-3">
-                            <label class="" for="titre">
+                            <label class="" for="titreUpdate">
                                 <h5>Titre</h5>
                             </label>
                             <div class="input-group">
                                 <div class="input-group-text"></div>
-                                <input type="text" class="form-control" id="titre" placeholder="Titre" name="titre">
+                                <input type="text" class="form-control" id="titreUpdate" placeholder="Titre" name="titre">
                             </div>
                         </div>
                         <div class="col-sm-3">
-                            <label class="" for="categorie">
+                            <label class="" for="categorieUpdate">
                                 <h5>Catégorie</h5>
                             </label>
-                            <select class="form-select" id="categorie" name="categorie">
+                            <select class="form-select" id="categorieUpdate" name="categorie">
                                 <option value="">Choisir...</option>
                                 <?php foreach ($result as $data) { ?>
                                     <option value="<?= $data['category_id'] ?>">

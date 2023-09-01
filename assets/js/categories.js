@@ -41,7 +41,7 @@ function createCategorie() {
             // Envoyer les données au serveur via AJAX
             $.ajax({
                 type: 'POST',
-                url: '/journal-online/controller/categories/createCategorie.php',
+                url: '/../../controller/categories/createCategorie.php',
                 data: data,
                 dataType: 'json',
                 encode: true
@@ -80,7 +80,7 @@ function createCategorie() {
 function displayCategorie() {
     var displayData="true";
     $.ajax({
-        url: '/journal-online/controller/categories/display.php',
+        url: '/../../controller/categories/display.php',
         type: 'post',
         data:{
             displaySend: displayData
